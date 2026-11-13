@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隱私政策 · SimNest</title>
+<meta name="description" content="SimNest 隱私政策">
+<meta property="og:title" content="隱私政策 · SimNest">
+<meta property="og:description" content="SimNest 隱私政策">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../privacy.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/privacy.html"><link rel="alternate" hreflang="en" href="../en/privacy.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-privacy">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../zh-Hant/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../zh-Hant/">首頁</a><a href="../zh-Hant/iphone.html">iPhone App</a><a href="../zh-Hant/gateway.html">閘道</a><a href="../zh-Hant/relay.html">自建中繼</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../privacy.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/privacy.html" hreflang="zh-Hant" aria-current="true">繁體</a><a href="../en/privacy.html" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<article class="wrap legal"><p class="draft-note">草稿：營運者資訊尚未填寫</p>
+<h1>SimNest 隱私政策</h1>
+<p>版本：1.0　生效日期：<mark class="todo">【生效日期】</mark>　更新日期：2026 年 11 月 6 日</p>
+<p><em>本文為簡體中文版的翻譯；兩者有出入時，以簡體中文版為準。</em></p>
+<p>SimNest（以下稱「我們」或「本產品」）由<mark class="todo">【營運者名稱】</mark>（以下稱「營運者」）提供。本政策說明 SimNest iPhone App、SimNest 閘道 Android App 和 SimNest 伺服器如何處理你的資訊。請你在使用前仔細閱讀，尤其是加粗的內容。</p>
+<p>如有疑問，請通過<mark class="todo">【聯繫郵箱】</mark>聯繫我們。</p>
+<h2>一、我們是怎麼工作的</h2>
+<p>SimNest 讓你用自己的一台 Android 手機（以下稱「閘道手機」）當作 SIM 卡閘道：來電和簡訊由閘道手機接收，再轉給你和你授權的家人的 iPhone；iPhone 也可以經閘道手機撥打電話、傳送簡訊。</p>
+<p><strong>簡訊內容、來電號碼、通訊錄、通話記錄和號碼名稱在發出前已在傳送方裝置上用接收方裝置的密鑰加密，只有接收方裝置能解開。我們的伺服器只轉交密文，無法讀取這些內容。</strong>通話語音經加密的點對點連接傳輸；直連不通時經我們的中繼伺服器轉發，中繼同樣只經手密文，不錄音，也不儲存。</p>
+<h2>二、我們處理哪些資訊、為什麼</h2>
+<h3>1. 為提供基本功能必須處理的資訊</h3>
+<div class="table"><table><thead><tr><th>資訊</th><th>來自</th><th>用途</th><th>儲存在哪、多久</th></tr></thead><tbody><tr><td>裝置標識（由裝置公鑰計算出的隨機 ID）和裝置公鑰</td><td>iPhone、閘道手機</td><td>識別裝置、核驗請求簽名，確保只有你配對過的裝置能收發</td><td>伺服器，直到你解除配對或要求刪除</td></tr><tr><td>推播令牌（Apple 推播服務提供）</td><td>iPhone</td><td>有來電和新簡訊時通知你的 iPhone</td><td>伺服器，直到令牌更新或你要求刪除</td></tr><tr><td>配對關係、家人邀請和家人共享規則（誰能接聽、撥出、看或發簡訊，由主人裝置簽名）</td><td>iPhone、閘道手機</td><td>決定來電響哪些裝置、誰能做什麼</td><td>伺服器，直到主人修改、移除家人或解除配對</td></tr><tr><td>閘道手機的卡槽、是否啟用、電信業者名稱</td><td>閘道手機</td><td>在 iPhone 上顯示有幾張卡、用哪張卡</td><td>伺服器，隨閘道更新</td></tr><tr><td>加密的號碼名稱和號碼</td><td>主人 iPhone、閘道手機</td><td>讓你和獲權家人看到「工作」「生活」等號碼名</td><td>伺服器只存密文</td></tr><tr><td>來電、通話、簡訊的轉發記錄（通話編號、狀態、時間）</td><td>各裝置</td><td>讓來電在多台裝置上同時響、確認接聽和掛斷、確認簡訊送達</td><td>伺服器記憶體中，通話結束或最多 5 分鐘後丟棄</td></tr><tr><td>網路連接資訊（IP 地址、端口、連接時間）</td><td>各裝置</td><td>建立連接；在直連不通時經中繼轉發通話</td><td>伺服器和中繼的運行日誌，最多儲存 30 天，用於排查故障和安全防護</td></tr></tbody></table></div>
+<h3>2. 只在你的裝置上處理、我們看不到的資訊</h3>
+<ul>
+<li><strong>簡訊內容、對方號碼</strong>：閘道手機收到簡訊後，為每台有「看簡訊」權限的 iPhone 分別加密，經伺服器轉交；iPhone 解密後儲存在本機。推播通知裡也帶著同樣的密文，由 iPhone 上的通知擴展在本機解開顯示。
+</li>
+<li><strong>來電號碼</strong>：閘道手機為每台要響鈴的 iPhone 分別加密，iPhone 在本機解開顯示，並寫入 iPhone 系統的「最近通話」。
+</li>
+<li><strong>iPhone 通訊錄</strong>：只在你點「允許讀取通訊錄」後，在 iPhone 本機讀取，用於顯示聯絡人名字，不上傳。
+</li>
+<li><strong>閘道手機的通訊錄和通話記錄</strong>：只在主人（或獲主人授權的家人）請求時，由閘道手機讀取並加密發給請求的那台 iPhone，儲存在那台 iPhone 上。
+</li>
+<li><strong>通話語音</strong>：即時傳輸，不錄音、不儲存。
+</li>
+<li><strong>你在 App 裡的設定</strong>：號碼順序、勿擾、按鍵音、草稿等，只儲存在本機。
+</li></ul>
+<h3>3. 你主動提供時才處理的資訊</h3>
+<ul>
+<li><strong>診斷日誌</strong>：只在你點「傳送診斷日誌」時上傳。內容是 App 的運行事件（例如「來電推播到達」「通話結束」）和設定狀態（版本、閘道數量、通知和通訊錄是否授權），<strong>不含電話號碼、簡訊內容和通訊錄</strong>；上傳前會把 7 位以上的連續數字遮掉。日誌在伺服器上儲存 30 天後自動刪除，只用於排查你報告的問題。你可以附一段問題描述，請不要在描述裡填寫個人資訊。
+</li>
+<li><strong>診斷截圖</strong>：傳送診斷日誌時，你可以自己挑選最多 3 張截圖一起上傳，不選就不會上傳。App 透過系統的照片選擇器，只能拿到你選中的那幾張，不會讀取你的相簿。截圖可能含電話號碼、簡訊內容或聯絡人，傳送前會再顯示一遍並提醒你確認。上傳前截圖會縮小並重新儲存，照片裡的拍攝位置等附加資訊會被去掉。截圖和對應的日誌放在一起，在伺服器上儲存 30 天後自動刪除，只用於排查你報告的問題。
+</li></ul>
+<h3>4. 我們不做的事</h3>
+<ul>
+<li>不收集你的姓名、手機號碼、身份證件、位置、照片、廣告標識符。
+</li>
+<li>不做使用者畫像，不做個性化推薦，不投放廣告。
+</li>
+<li>不接入第三方統計或廣告 SDK。
+</li>
+<li>不向任何第三方出售、出租你的資訊。
+</li></ul>
+<h2>三、裝置權限</h2>
+<p>iPhone App 會在你使用相應功能時請求：</p>
+<ul>
+<li><strong>麥克風</strong>：通話時與對方說話。
+</li>
+<li><strong>通知</strong>：提醒來電和新簡訊。
+</li>
+<li><strong>相機</strong>：掃描閘道手機上的配對碼。只在掃描時使用，不拍照、不儲存。
+</li>
+<li><strong>通訊錄</strong>（可選）：在本機顯示聯絡人名字。拒絕後其他功能照常可用。
+</li></ul>
+<p>閘道 Android App 需要以下權限，都由你在系統彈窗或系統設定裡允許：</p>
+<ul>
+<li><strong>電話、接聽電話、撥打電話、讀取通話記錄、讀取本機號碼</strong>：接收和轉接來電、經閘道撥出、顯示來電號碼。
+</li>
+<li><strong>簡訊</strong>：接收、傳送和讀取簡訊。閘道會成為這台手機的預設簡訊應用，以便代發簡訊和寫入系統簡訊庫。
+</li>
+<li><strong>通訊錄</strong>：僅在主人或獲權家人請求閘道通訊錄時讀取。
+</li>
+<li><strong>通知</strong>：保持閘道運行狀態可見，並且可以隨時關閉。
+</li>
+<li><strong>懸浮窗、開機啟動</strong>：在後台保持閘道運行。
+</li>
+<li><strong>修改安全設定</strong>：僅在首次配對無線調試時由本機授予閘道自己，只用於在重啟或更換 Wi-Fi 後重新開啟無線調試並啟動音訊轉接，不修改其他設定。
+</li></ul>
+<p>你可以隨時在系統設定裡關閉這些權限，關閉後對應功能將不可用。</p>
+<h2>四、家人共享和他人的資訊</h2>
+<p>主人可以邀請家人用他們自己的 iPhone 接聽來電、撥出、查看或傳送簡訊、查看閘道通訊錄。邀請時由主人勾選權限，家人接受後才生效，主人可以隨時修改或移除。家人被移除或失去「看簡訊」權限後，其 iPhone 上來自該閘道的已收簡訊會被刪除。</p>
+<p>閘道手機收到的簡訊、來電和通訊錄裡包含其他人（聯絡人、來電方、發信人）的資訊。<strong>你應確保有權處理這些資訊，並在邀請家人前告知相關情況。</strong>請只把權限給你信任的人。</p>
+<h2>五、資訊存儲地點和安全</h2>
+<ul>
+<li>來電和簡訊提醒經 Apple 推播服務（APNs）送達 iPhone，Apple 的伺服器可能位於境外。經過 Apple 的只有推播令牌、「新簡訊」這幾個字和加密後的密文，Apple 無法讀取簡訊內容和來電號碼。除此之外，我們不向境外傳輸你的資訊。
+</li>
+<li>裝置之間使用 TLS 加證書固定連接伺服器；端到端加密採用 HPKE（X25519 / HKDF-SHA256 / AES-128-GCM），並有裝置簽名；裝置私鑰儲存在 iPhone 的安全隔區或鑰匙串、以及 Android 的密鑰庫中，不會離開裝置。
+</li>
+<li>儘管我們採取了上述措施，互連網傳輸和存儲並非絕對安全。如發生個人資訊安全事件，我們會按法律要求及時告知你，並向主管部門報告。
+</li></ul>
+<h2>六、儲存期限和刪除</h2>
+<ul>
+<li>伺服器上的裝置、配對和共享記錄：儲存到你解除配對或要求刪除為止。
+</li>
+<li>轉發中的通話和簡訊記錄：在記憶體中，通話結束或最多 5 分鐘後丟棄。
+</li>
+<li>運行日誌：最多 30 天。
+</li>
+<li>診斷日誌和隨附的截圖：30 天。
+</li>
+<li>你裝置上的簡訊、通話記錄和設定：由你自己管理。刪除會話、解除配對或卸載 App 時會一並刪除。
+</li></ul>
+<p><strong>你可以隨時在 iPhone 上解除與閘道的配對，或通過<mark class="todo">【聯繫郵箱】</mark>要求我們刪除伺服器上與你的裝置有關的全部記錄。我們會在 15 個工作日內處理。</strong></p>
+<h2>七、你的權利</h2>
+<p>依據《中華人民共和國個人資訊保護法》等法律法規，你有權查閱、複製、更正、刪除你的個人資訊，有權撤回同意、註銷（解除配對即停止使用），也有權要求我們解釋資訊處理規則。上述請求請傳送到<mark class="todo">【聯繫郵箱】</mark>，我們會在 15 個工作日內答復。撤回同意不影響撤回前已進行的處理。</p>
+<h2>八、未成年人</h2>
+<p>SimNest 面向成年人。不滿 14 週歲的未成年人應在監護人陪同和同意下使用。</p>
+<h2>九、政策更新</h2>
+<p>本政策變更時，我們會在 App 內提示，重大變更會請你重新同意。</p>
+<h2>十、聯繫我們</h2>
+<p>營運者：<mark class="todo">【營運者名稱】</mark> 地址：<mark class="todo">【聯繫地址】</mark> 郵箱：<mark class="todo">【聯繫郵箱】</mark></p></article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — 號碼留在家裡，電話和簡訊跟著你走。</p>
+    <p><a href="../zh-Hant/privacy.html">隱私政策</a> · <a href="../zh-Hant/terms.html">使用者協議</a> · <a href="../zh-Hant/disclaimer.html">免責聲明</a></p>
+    <p>原始碼: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

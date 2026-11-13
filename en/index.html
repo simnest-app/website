@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimNest</title>
+<meta name="description" content="Leave an Android phone with your SIM card at home as a gateway, and your and your family&#x27;s iPhones can take calls and texts on that number from anywhere. End-to-end encrypted, open-source gateway.">
+<meta property="og:title" content="SimNest">
+<meta property="og:description" content="Leave an Android phone with your SIM card at home as a gateway, and your and your family&#x27;s iPhones can take calls and texts on that number from anywhere. End-to-end encrypted, open-source gateway.">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href=".././"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/"><link rel="alternate" hreflang="en" href="../en/">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-index">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../en/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../en/" aria-current="page">Home</a><a href="../en/iphone.html">iPhone app</a><a href="../en/gateway.html">Gateway</a><a href="../en/relay.html">Self-hosted relay</a></nav>
+    <nav class="lang" aria-label="Language"><a href=".././" hreflang="zh-Hans">简体</a><a href="../zh-Hant/" hreflang="zh-Hant">繁體</a><a href="../en/" hreflang="en" aria-current="true">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">iPhone app in private beta · Gateway is open source</p>
+      <h1>Your number stays home. Your calls and texts come with you.</h1>
+      <p class="lead">Leave an Android phone with your SIM card at home as a gateway. Your iPhone, and your family's, can then answer calls, make calls and send texts on that number from anywhere. Everything is end-to-end encrypted; our servers can't read it.</p>
+      <div class="actions">
+        <a class="btn primary" href="gateway.html">Get the gateway</a>
+        <a class="btn" href="#how">How it works</a>
+      </div>
+      <p class="note">The iPhone app is in an invite-only TestFlight beta and not yet on the App Store.</p>
+    </div>
+    <svg class="flow" viewBox="0 0 520 320" role="img" aria-label="The Android gateway phone at home passes calls and texts over an encrypted connection to the iPhone away from home">
+      <rect class="box" x="1" y="40" width="518" height="240" rx="24"/>
+      <rect class="phone" x="48" y="78" width="96" height="172" rx="20"/>
+      <rect class="screen" x="58" y="96" width="76" height="136" rx="10"/>
+      <rect class="phone" x="376" y="78" width="96" height="172" rx="14"/>
+      <rect class="screen" x="386" y="92" width="76" height="144" rx="6"/>
+      <path class="sim" d="M408 140h22l10 10v32h-32z"/>
+      <path class="link" d="M150 164 C 220 110, 300 110, 370 164"/>
+      <path class="link" d="M150 176 C 220 230, 300 230, 370 176"/>
+      <rect class="lock" x="222" y="150" width="76" height="26" rx="13"/>
+      <text class="lock-text" x="260" y="168" text-anchor="middle">Encrypted</text>
+      <text class="label" x="96" y="276" text-anchor="middle">Your iPhone</text>
+      <text class="small" x="96" y="30" text-anchor="middle">Away</text>
+      <text class="label" x="424" y="276" text-anchor="middle">Gateway phone</text>
+      <text class="small" x="424" y="30" text-anchor="middle">At home, with the SIM</text>
+      <text class="small" x="260" y="104" text-anchor="middle">Calls in · Texts in</text>
+      <text class="small" x="260" y="236" text-anchor="middle">Calls out · Replies</text>
+    </svg>
+  </div>
+</div>
+
+<section id="who">
+  <div class="wrap">
+    <h2>Made for</h2>
+    <p class="section-lead">No second phone to carry, no roaming, no forwarding to another number.</p>
+    <div class="grid two">
+      <div class="card"><h3>You're away, your number is at home</h3><p>Abroad, travelling or living elsewhere, your number still takes calls and verification codes, and people still see your number.</p></div>
+      <div class="card"><h3>One number the whole family answers</h3><p>The home line, a parent's number, the business line: several iPhones ring at once, and whoever is free picks up.</p></div>
+      <div class="card"><h3>Both SIMs, on your iPhone</h3><p>One Android phone with two SIMs brings both lines to your iPhone, with family permissions set line by line.</p></div>
+      <div class="card"><h3>Unknown callers, screened first</h3><p>The call assistant answers in your own voice. You read what the caller says on your iPhone, then decide whether to take over.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="soft">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="section-lead">No account. Devices pair by QR code, and each one has its own keys.</p>
+    <ol class="steps">
+      <li><strong>Install the gateway at home</strong>Put the SIM in an Android phone, install the SimNest Gateway and grant what it asks for. A spare phone, plugged in and on Wi-Fi, is ideal.</li>
+      <li><strong>Pair your iPhone</strong>Open SimNest on your iPhone and scan the code on the gateway's screen. That iPhone becomes the owner; invite family with a link or QR code.</li>
+      <li><strong>Head out</strong>Calls ring your iPhone, texts arrive on it, and dialling from it calls out on the SIM at home.</li>
+    </ol>
+    <div class="callout"><p>Calls go direct whenever they can: same network, public IPv6 on your home Wi-Fi, or a router port mapping. Only when none works does a relay pass the audio along, and it only ever sees encrypted audio.</p></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="section-lead">All of this is already in the beta.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>Calls</h3>
+        <ul><li>Ring several iPhones at once, the owner first, or a chosen person first</li><li>Calls show in the iPhone's Recents and can be answered on the lock screen</li><li>Hand a call to family, or bring them into it</li><li>Shows where an unknown number is from</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Texts</h3>
+        <ul><li>Feels like the iPhone's own Messages</li><li>Copy verification codes in one tap</li><li>Load older texts from the gateway phone by date</li><li>Drafts wait while the gateway is offline and can send when it's back</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <h3>Family sharing</h3>
+        <ul><li>Per line: answer, call out, read texts, send texts, see contacts</li><li>The owner can take any of it back</li><li>Move to a new phone with the old one's approval; lost it? Use your recovery code</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></div>
+        <h3>Call assistant<span class="tag">Optional</span></h3>
+        <ul><li>Answers unknown callers right away, or after ringing a while</li><li>Speaks in your own voice: just read a few sentences</li><li>Live transcript; listen in, tap a reply, or take over any time</li><li>Voice and transcript are made on the gateway phone itself</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
+        <h3>Call recording<span class="tag">Off by default</span></h3>
+        <ul><li>Kept on the gateway phone at home</li><li>A space limit per line; the oldest go first</li><li>An optional notice the other side hears when the call starts</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Know before you go</h3>
+        <ul><li>A pre-trip check: gateway, SIM, network, direct paths and battery on one page</li><li>Told within a minute if the gateway goes offline</li><li>Calls recover when you switch between Wi-Fi and cellular</li><li>Home screen widgets</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="soft">
+  <div class="wrap">
+    <h2>Our servers can't read your calls or texts</h2>
+    <p class="section-lead">Texts, caller numbers, contacts and call logs are encrypted on the sending device with the receiving device's key. Only that device can open them.</p>
+    <div class="grid">
+      <div class="card"><h3>End-to-end encrypted</h3><p>HPKE (X25519, HKDF-SHA256, AES-128-GCM) with a device signature on every message. Servers and relays only pass ciphertext along.</p></div>
+      <div class="card"><h3>No account</h3><p>No name, phone number, location or advertising ID collected. No third-party analytics or ads.</p></div>
+      <div class="card"><h3>Logs only when you say so</h3><p>Diagnostic logs are uploaded only when you tap Send, never contain phone numbers or text content, and are deleted after 30 days.</p></div>
+    </div>
+    <p class="note">See the <a href="privacy.html">Privacy Policy</a>.</p>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <h2>The gateway is open source</h2>
+    <p class="section-lead">The gateway lives on your phone at home with full access to its calls and texts. So its code is public: anyone can check what it does, and help bring it to more phones.</p>
+    <div class="table">
+      <table class="parts">
+        <thead><tr><th>Part</th><th>Runs on</th><th>Does</th><th>Code</th></tr></thead>
+        <tbody>
+          <tr><td><a href="gateway.html">Gateway</a></td><td>The Android phone at home with the SIM</td><td>Takes over the SIM's calls and texts, encrypts them for your iPhones</td><td class="open">Open, GPL-3.0</td></tr>
+          <tr><td><a href="iphone.html">SimNest for iPhone</a></td><td>Your and your family's iPhones</td><td>Answering, dialling, texts, family</td><td class="closed">Closed</td></tr>
+          <tr><td>Core service</td><td>SimNest's servers</td><td>Push, pairing, call setup, passing ciphertext</td><td class="closed">Closed</td></tr>
+          <tr><td><a href="relay.html">Self-hosted relay</a></td><td>Your own server or NAS</td><td>Relays encrypted audio when a direct path fails</td><td class="open">Open, GPL-3.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid two" style="margin-top:24px">
+      <div class="card"><h3>For your own tools: MCP</h3><p>The gateway has a built-in MCP server. Your AI tools can read and send texts, place and answer calls, and talk with the caller in text while the gateway transcribes and speaks. Authorised on the gateway, rate-limited by default.</p></div>
+      <div class="card"><h3>Run your own relay</h3><p>Run a relay with Docker on your own server or home NAS, and your calls never pass through SimNest's relay. <a href="relay.html">How to deploy</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="status" class="soft">
+  <div class="wrap">
+    <h2>Where things stand</h2>
+    <p class="section-lead">Written down here so you don't find out after installing.</p>
+    <ul class="status">
+      <li><b>The iPhone app is in beta</b>, installed by TestFlight invitation, and not yet on the App Store.</li>
+      <li><b>The gateway is released</b> on GitHub and Gitee. It works together with the iPhone app.</li>
+      <li><b>The gateway needs Android 12 or later.</b> Verified: Redmi Note 11 5G (Android 13); Huawei Mate 40 RS works with limits. Other phones are untested.</li>
+      <li><b>The gateway phone stays plugged in and online.</b> First-time setup turns on Wireless debugging, which the gateway uses to carry call audio.</li>
+      <li><b>Most dual-SIM phones handle one call at a time</b>: while one SIM is on a call, the other's callers get a busy signal.</li>
+      <li><b>MMS content isn't forwarded</b>, only a notice that one arrived. For emergency calls, dial from the phone in your hand.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap prose">
+    <h2>Questions</h2>
+    <details><summary>How is this different from call forwarding?</summary><p>Forwarding needs another number to answer and can't bring your texts. SimNest uses the SIM at home itself, so people you call still see your own number.</p></details>
+    <details><summary>How is this different from eSIM or roaming?</summary><p>No new SIM, no roaming. The number stays on the physical SIM at home and works wherever you have internet.</p></details>
+    <details><summary>Does the phone at home have to stay on?</summary><p>Yes: plugged in, online, with the gateway running. A spare Android phone dedicated to the job works best.</p></details>
+    <details><summary>What's the call quality like?</summary><p>It depends on the network at both ends. Direct paths have the lowest delay; a relay adds a hop. Your iPhone shows which one a call is using.</p></details>
+    <details><summary>Can your servers read my texts?</summary><p>No. They only pass encrypted content along; the keys stay on your devices.</p></details>
+    <details><summary>Why is the gateway open source but not the iPhone app?</summary><p>The gateway holds the call and text permissions of your SIM, so you should be able to check what it does, and others can help support more phones. The iPhone app and core service are how we keep the product going.</p></details>
+    <details><summary>How do I join the iPhone beta?</summary><p>It's invite-only for now, with limited places. We'll say so here when it opens up.</p></details>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — Your number stays home. Your calls and texts come with you.</p>
+    <p><a href="../en/privacy.html">Privacy</a> · <a href="../en/terms.html">Terms</a> · <a href="../en/disclaimer.html">Disclaimer</a></p>
+    <p>Source code: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

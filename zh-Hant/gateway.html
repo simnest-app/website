@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閘道 · SimNest</title>
+<meta name="description" content="SimNest 閘道是裝在家裡 Android 手機上的開源 App（GPL-3.0），把這支手機上 SIM 卡的電話和簡訊加密轉給你的 iPhone。">
+<meta property="og:title" content="閘道 · SimNest">
+<meta property="og:description" content="SimNest 閘道是裝在家裡 Android 手機上的開源 App（GPL-3.0），把這支手機上 SIM 卡的電話和簡訊加密轉給你的 iPhone。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../gateway.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/gateway.html"><link rel="alternate" hreflang="en" href="../en/gateway.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-gateway">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../zh-Hant/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../zh-Hant/">首頁</a><a href="../zh-Hant/iphone.html">iPhone App</a><a href="../zh-Hant/gateway.html" aria-current="page">閘道</a><a href="../zh-Hant/relay.html">自建中繼</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../gateway.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/gateway.html" hreflang="zh-Hant" aria-current="true">繁體</a><a href="../en/gateway.html" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">開源 · GPL-3.0</p>
+    <h1>SimNest 閘道</h1>
+    <p class="lead">裝在家裡那支插著 SIM 卡的 Android 手機上。它接管這張卡的來電、撥出和簡訊，加密後轉給你和家人的 iPhone。</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/gateway/releases/latest">從 GitHub 下載</a>
+      <a class="btn" href="https://gitee.com/simnest-app/gateway/releases">從 Gitee 下載</a>
+      <a class="btn" href="https://github.com/simnest-app/gateway">原始碼</a>
+    </div>
+    <p class="note">兩處是同一個安裝檔。GitHub 連線慢的話用 Gitee。</p>
+
+    <div class="callout"><p>閘道要搭配 SimNest iPhone App 使用，iPhone App 目前透過 TestFlight 邀請內測。沒有 iPhone App，閘道裝好後無法配對。</p></div>
+
+    <h2>需要什麼</h2>
+    <ul>
+      <li>一支 Android 12 以上、arm64 的 Android 手機，插著你要用的 SIM 卡。建議用閒置手機專門當閘道。</li>
+      <li>手機長期接上電源、連著家裡的 Wi-Fi。</li>
+      <li>第一次設定時開啟開發人員選項裡的「無線偵錯」。閘道用它在本機啟動一個音訊服務，把通話聲音接出來，這是通話有聲音的前提。</li>
+    </ul>
+
+    <h2>驗證過的機型</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>手機</th><th>系統</th><th>狀態</th></tr></thead>
+        <tbody>
+          <tr><td>Redmi Note 11 5G</td><td>Android 13（HyperOS 1.0）</td><td>維護者日常使用</td></tr>
+          <tr><td>華為 Mate 40 RS</td><td>HarmonyOS 4.2</td><td>部分可用：沒有無線偵錯，手機重新開機後要接一次電腦才有聲音</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>其他機型還沒驗證過。Android 品牌和系統改動太多，我們沒辦法逐一測試，這也是閘道開源的原因之一：你的手機能用、不能用，都歡迎在 <a href="https://github.com/simnest-app/gateway/issues">Issues</a> 告訴我們。儲存庫裡有一份給貢獻者的適配和取證說明。</p>
+
+    <h2>它在手機上要哪些權限</h2>
+    <p>閘道要的權限比一般 App 多。每一項都在 App 裡寫明用途，由你在系統對話框裡允許。</p>
+    <ul>
+      <li><b>電話、通話記錄、撥打電話、簡訊、通訊錄</b>：轉接來電和簡訊，讓 iPhone 看到來電號碼，透過閘道撥出。</li>
+      <li><b>預設電話 App、預設簡訊 App</b>：知道對方什麼時候接聽；避免系統每傳一則簡訊都跳出確認。</li>
+      <li><b>無線偵錯</b>：在本機啟動音訊服務。</li>
+      <li><b>修改安全設定</b>：只用來在重新開機或換 Wi-Fi 後重新開啟無線偵錯。</li>
+      <li><b>開機自動啟動、前景服務</b>：手機重新開機後閘道自己恢復，通知欄一直看得到它在執行，可以隨時關閉。</li>
+    </ul>
+    <p>閘道不會自己撥號。它替 iPhone 撥出和傳簡訊時，只聽主人和主人授權的家人。</p>
+
+    <h2>更新</h2>
+    <p>官方安裝檔會查 GitHub 和 Gitee 上的最新版本，下載後核對套件名稱、版本和簽章（必須和已安裝的一致）再安裝。預設只提示你，也可以在「關於」裡開啟自動更新。</p>
+
+    <h2>核對安裝檔</h2>
+    <p>每個版本的發布說明裡寫著安裝檔的 SHA-256。下載後可以在電腦上核對：</p>
+    <pre><code>shasum -a 256 simnest-gateway-*.apk</code></pre>
+
+    <h2>自己編譯</h2>
+    <p>原始碼在 <a href="https://github.com/simnest-app/gateway">GitHub</a>，編譯方法見儲存庫說明。自己編譯的安裝檔裡沒有 SimNest 核心服務的位址，裝好後介面都在，但無法配對。</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — 號碼留在家裡，電話和簡訊跟著你走。</p>
+    <p><a href="../zh-Hant/privacy.html">隱私政策</a> · <a href="../zh-Hant/terms.html">使用者協議</a> · <a href="../zh-Hant/disclaimer.html">免責聲明</a></p>
+    <p>原始碼: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

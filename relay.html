@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自建中继 · SimNest</title>
+<meta name="description" content="在自己的云主机或 NAS 上用 Docker 跑一个 SimNest 中继，网关和 iPhone 直连不通时，通话经你自己的机器转发。">
+<meta property="og:title" content="自建中继 · SimNest">
+<meta property="og:description" content="在自己的云主机或 NAS 上用 Docker 跑一个 SimNest 中继，网关和 iPhone 直连不通时，通话经你自己的机器转发。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="relay.html"><link rel="alternate" hreflang="zh-Hant" href="zh-Hant/relay.html"><link rel="alternate" hreflang="en" href="en/relay.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page-relay">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="./">首页</a><a href="iphone.html">iPhone App</a><a href="gateway.html">网关</a><a href="relay.html" aria-current="page">自建中继</a></nav>
+    <nav class="lang" aria-label="Language"><a href="relay.html" hreflang="zh-Hans" aria-current="true">简体</a><a href="zh-Hant/relay.html" hreflang="zh-Hant">繁體</a><a href="en/relay.html" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">开源 · GPL-3.0 · 给动手能力强的用户</p>
+    <h1>自建中继</h1>
+    <p class="lead">网关和 iPhone 之间直连不通时，通话要经一台中继转发。默认用 SimNest 的中继；你也可以在自己的云主机或家里的 NAS 上跑一个，通话就经你自己的机器。</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/relay">部署包和说明</a>
+    </div>
+
+    <div class="callout"><p>部署包的程序和安全配置都有自动测试，网关也能添加和使用自建中继；但在真实的云主机或 NAS 上从部署到通话的整条路还没有实地验证过。遇到问题欢迎提 Issue。</p></div>
+
+    <h2>中继能看到什么</h2>
+    <ul>
+      <li>中继只转发加密后的声音，听不到也改不了通话内容：通话两端之间另有端到端加密。</li>
+      <li>自建中继不连接 SimNest 的服务。它的地址和密钥只在你的网关上，SimNest 的服务器不知道有这台中继。</li>
+      <li>中继能看到通话两端的公网地址、什么时候通话、通了多久。所以它应该放在你自己管的机器上。</li>
+    </ul>
+
+    <h2>需要什么</h2>
+    <ul>
+      <li>一台有公网地址的机器。云主机可以直接用；家里的机器要在路由器上做端口映射，而且宽带得有公网地址（运营商级 NAT 后面的机器当不了中继）。</li>
+      <li>Docker 和 Docker Compose。</li>
+      <li>放行 3478 的 UDP 和 TCP，以及 49160 到 49200 的 UDP。</li>
+      <li>每通电话大约占 100 kbps 上行带宽。</li>
+    </ul>
+
+    <h2>部署</h2>
+    <p>下载部署包，复制配置文件，把 <code>EXTERNAL_IP</code> 填成这台机器的公网地址：</p>
+    <pre><code>git clone https://github.com/simnest-app/relay.git
+cd relay
+cp .env.example .env</code></pre>
+    <p>然后启动：</p>
+    <pre><code>docker compose up -d</code></pre>
+    <p>启动后，<code>docker compose logs helper</code> 里有一个设置页面的地址。在局域网里用浏览器打开它（云主机用 SSH 端口转发），把页面上的连接文字复制到网关“网络与中继”里的“自建中继”，网关会立刻实测一次。完整步骤见<a href="https://github.com/simnest-app/relay">部署包说明</a>。</p>
+
+    <h2>里面有什么</h2>
+    <ul>
+      <li><b>coturn</b>：TURN 中继，用官方镜像并按摘要固定版本（BSD-3 许可）。</li>
+      <li><b>小助手</b>：第一次运行生成密钥，写出 coturn 的安全配置，在设置页面上给出添加到网关用的连接信息，并做自检。</li>
+      <li><b>安全配置</b>：只认临时凭据，有限额，禁止转发到内网和保留地址。</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="assets/icon.svg" alt="" width="24" height="24"> SimNest — 号码留在家里，电话和短信跟着你走。</p>
+    <p><a href="privacy.html">隐私政策</a> · <a href="terms.html">用户协议</a> · <a href="disclaimer.html">免责声明</a></p>
+    <p>源代码: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

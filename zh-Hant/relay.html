@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自建中繼 · SimNest</title>
+<meta name="description" content="在自己的雲端主機或 NAS 上用 Docker 跑一個 SimNest 中繼，閘道和 iPhone 直連不通時，通話經你自己的機器轉發。">
+<meta property="og:title" content="自建中繼 · SimNest">
+<meta property="og:description" content="在自己的雲端主機或 NAS 上用 Docker 跑一個 SimNest 中繼，閘道和 iPhone 直連不通時，通話經你自己的機器轉發。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../relay.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/relay.html"><link rel="alternate" hreflang="en" href="../en/relay.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-relay">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../zh-Hant/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../zh-Hant/">首頁</a><a href="../zh-Hant/iphone.html">iPhone App</a><a href="../zh-Hant/gateway.html">閘道</a><a href="../zh-Hant/relay.html" aria-current="page">自建中繼</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../relay.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/relay.html" hreflang="zh-Hant" aria-current="true">繁體</a><a href="../en/relay.html" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">開源 · GPL-3.0 · 給動手能力強的使用者</p>
+    <h1>自建中繼</h1>
+    <p class="lead">閘道和 iPhone 之間直連不通時，通話要經一台中繼轉發。預設用 SimNest 的中繼；你也可以在自己的雲端主機或家裡的 NAS 上跑一個，通話就經你自己的機器。</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/relay">部署套件和說明</a>
+    </div>
+
+    <div class="callout"><p>部署套件的程式和安全設定都有自動測試，閘道也能新增和使用自建中繼；但在真實的雲端主機或 NAS 上從部署到通話的整條路還沒有實地驗證過。遇到問題歡迎提 Issue。</p></div>
+
+    <h2>中繼看得到什麼</h2>
+    <ul>
+      <li>中繼只轉發加密後的聲音，聽不到也改不了通話內容：通話兩端之間另有端對端加密。</li>
+      <li>自建中繼不連 SimNest 的服務。它的位址和金鑰只在你的閘道上，SimNest 的伺服器不知道有這台中繼。</li>
+      <li>中繼看得到通話兩端的公網位址、什麼時候通話、通了多久。所以它應該放在你自己管理的機器上。</li>
+    </ul>
+
+    <h2>需要什麼</h2>
+    <ul>
+      <li>一台有公網位址的機器。雲端主機可以直接用；家裡的機器要在路由器上設定連接埠對應，而且寬頻要有公網位址（電信業者級 NAT 後面的機器當不了中繼）。</li>
+      <li>Docker 和 Docker Compose。</li>
+      <li>開放 3478 的 UDP 和 TCP，以及 49160 到 49200 的 UDP。</li>
+      <li>每通電話大約佔 100 kbps 上傳頻寬。</li>
+    </ul>
+
+    <h2>部署</h2>
+    <p>下載部署套件，複製設定檔，把 <code>EXTERNAL_IP</code> 填成這台機器的公網位址：</p>
+    <pre><code>git clone https://github.com/simnest-app/relay.git
+cd relay
+cp .env.example .env</code></pre>
+    <p>然後啟動：</p>
+    <pre><code>docker compose up -d</code></pre>
+    <p>啟動後，<code>docker compose logs helper</code> 裡有一個設定頁面的網址。在區域網路裡用瀏覽器打開（雲端主機用 SSH 連接埠轉送），把頁面上的連線文字複製到閘道「網路與中繼」裡的「自建中繼」，閘道會立刻實測一次。完整步驟見<a href="https://github.com/simnest-app/relay">部署套件說明</a>。</p>
+
+    <h2>裡面有什麼</h2>
+    <ul>
+      <li><b>coturn</b>：TURN 中繼，用官方映像檔並按摘要固定版本（BSD-3 授權）。</li>
+      <li><b>小幫手</b>：第一次執行時產生金鑰，寫出 coturn 的安全設定，在設定頁面上給出新增到閘道用的連線資訊，並做自我檢查。</li>
+      <li><b>安全設定</b>：只認臨時憑證，有額度限制，禁止轉發到內網和保留位址。</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — 號碼留在家裡，電話和簡訊跟著你走。</p>
+    <p><a href="../zh-Hant/privacy.html">隱私政策</a> · <a href="../zh-Hant/terms.html">使用者協議</a> · <a href="../zh-Hant/disclaimer.html">免責聲明</a></p>
+    <p>原始碼: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

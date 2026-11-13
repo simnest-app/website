@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网关 · SimNest</title>
+<meta name="description" content="SimNest 网关是装在家里安卓手机上的开源应用（GPL-3.0），把这台手机上 SIM 卡的电话和短信加密转给你的 iPhone。">
+<meta property="og:title" content="网关 · SimNest">
+<meta property="og:description" content="SimNest 网关是装在家里安卓手机上的开源应用（GPL-3.0），把这台手机上 SIM 卡的电话和短信加密转给你的 iPhone。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="gateway.html"><link rel="alternate" hreflang="zh-Hant" href="zh-Hant/gateway.html"><link rel="alternate" hreflang="en" href="en/gateway.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page-gateway">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="./">首页</a><a href="iphone.html">iPhone App</a><a href="gateway.html" aria-current="page">网关</a><a href="relay.html">自建中继</a></nav>
+    <nav class="lang" aria-label="Language"><a href="gateway.html" hreflang="zh-Hans" aria-current="true">简体</a><a href="zh-Hant/gateway.html" hreflang="zh-Hant">繁體</a><a href="en/gateway.html" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">开源 · GPL-3.0</p>
+    <h1>SimNest 网关</h1>
+    <p class="lead">装在家里那台插着 SIM 卡的安卓手机上。它接管这张卡的来电、拨出和短信，加密后转给你和家人的 iPhone。</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/gateway/releases/latest">从 GitHub 下载</a>
+      <a class="btn" href="https://gitee.com/simnest-app/gateway/releases">从 Gitee 下载</a>
+      <a class="btn" href="https://github.com/simnest-app/gateway">看源代码</a>
+    </div>
+    <p class="note">两处是同一个安装包。国内访问 GitHub 慢的话用 Gitee。</p>
+
+    <div class="callout"><p>网关要配合 SimNest iPhone App 使用，iPhone App 目前经 TestFlight 邀请内测。没有 iPhone App，网关装上后不能配对。</p></div>
+
+    <h2>需要什么</h2>
+    <ul>
+      <li>一台 Android 12 及以上、arm64 的安卓手机，插着你要用的 SIM 卡。建议用闲置手机专门做网关。</li>
+      <li>手机长期插电、连着家里的 Wi-Fi。</li>
+      <li>第一次配置时打开开发者选项里的“无线调试”。网关用它在本机启动一个音频服务，把通话声音接出来，这是通话有声音的前提。</li>
+    </ul>
+
+    <h2>验证过的机型</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>手机</th><th>系统</th><th>状态</th></tr></thead>
+        <tbody>
+          <tr><td>Redmi Note 11 5G</td><td>Android 13（HyperOS 1.0）</td><td>维护者日常在用</td></tr>
+          <tr><td>华为 Mate 40 RS</td><td>HarmonyOS 4.2</td><td>部分可用：没有无线调试，手机重启后要连一次电脑才有声音</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>其他机型还没验证过。安卓品牌和系统改动太多，我们没法逐一去试，这也是网关开源的原因之一：你的手机能用、不能用，都欢迎在 <a href="https://github.com/simnest-app/gateway/issues">Issues</a> 里告诉我们。仓库里有一份给贡献者的适配和取证说明。</p>
+
+    <h2>它在手机上要哪些权限</h2>
+    <p>网关要的权限比普通应用多。每一项都在应用里写明用途，由你在系统弹窗里允许。</p>
+    <ul>
+      <li><b>电话、通话记录、拨打电话、短信、通讯录</b>：转接来电和短信，让 iPhone 看到来电号码，经网关拨出。</li>
+      <li><b>默认电话应用、默认短信应用</b>：知道对方什么时候接听；避免系统每发一条短信都弹确认框。</li>
+      <li><b>无线调试</b>：在本机启动音频服务。</li>
+      <li><b>修改安全设置</b>：只用来在重启或换 Wi-Fi 后重新打开无线调试。</li>
+      <li><b>开机自启、前台服务</b>：手机重启后网关自己恢复，通知栏一直看得到它在运行，可以随时关闭。</li>
+    </ul>
+    <p>网关不会自己拨号。它替 iPhone 拨出和发短信时，只听主人和主人授权的家人。</p>
+
+    <h2>更新</h2>
+    <p>官方安装包会查 GitHub 和 Gitee 上的最新版本，下载后核对包名、版本和签名（必须和已装的一致）再安装。默认只提示你，也可以在“关于”里打开自动更新。</p>
+
+    <h2>核对安装包</h2>
+    <p>每个版本的发布说明里写着安装包的 SHA-256。下载后可以在电脑上核对：</p>
+    <pre><code>shasum -a 256 simnest-gateway-*.apk</code></pre>
+
+    <h2>自己编译</h2>
+    <p>源码在 <a href="https://github.com/simnest-app/gateway">GitHub</a>，编译方法见仓库说明。自己编译的包里没有 SimNest 核心服务的地址，装上后界面都在，但不能配对。</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="assets/icon.svg" alt="" width="24" height="24"> SimNest — 号码留在家里，电话和短信跟着你走。</p>
+    <p><a href="privacy.html">隐私政策</a> · <a href="terms.html">用户协议</a> · <a href="disclaimer.html">免责声明</a></p>
+    <p>源代码: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

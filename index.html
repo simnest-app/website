@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimNest</title>
+<meta name="description" content="把插着 SIM 卡的安卓手机留在家里当网关，你和家人的 iPhone 在任何地方都能用这个号码接打电话、收发短信。端到端加密，网关开源。">
+<meta property="og:title" content="SimNest">
+<meta property="og:description" content="把插着 SIM 卡的安卓手机留在家里当网关，你和家人的 iPhone 在任何地方都能用这个号码接打电话、收发短信。端到端加密，网关开源。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="./"><link rel="alternate" hreflang="zh-Hant" href="zh-Hant/"><link rel="alternate" hreflang="en" href="en/">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="page-index">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="./" aria-current="page">首页</a><a href="iphone.html">iPhone App</a><a href="gateway.html">网关</a><a href="relay.html">自建中继</a></nav>
+    <nav class="lang" aria-label="Language"><a href="./" hreflang="zh-Hans" aria-current="true">简体</a><a href="zh-Hant/" hreflang="zh-Hant">繁體</a><a href="en/" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">iPhone App 内测中 · 网关已开源</p>
+      <h1><span class="nw">号码留在家里，</span><br><span class="nw">电话和短信跟着你走。</span></h1>
+      <p class="lead">把一台插着 SIM 卡的安卓手机放在家里当网关，你和家人的 iPhone 在任何地方都能用这个号码接电话、打电话、收发短信。内容端到端加密，服务器读不到。</p>
+      <div class="actions">
+        <a class="btn primary" href="gateway.html">下载网关</a>
+        <a class="btn" href="#how">怎么工作</a>
+      </div>
+      <p class="note">iPhone App 目前经 TestFlight 邀请内测，暂未上架 App Store。</p>
+    </div>
+    <svg class="flow" viewBox="0 0 520 320" role="img" aria-label="家里的安卓网关手机经加密连接，把电话和短信转到在外面的 iPhone">
+      <rect class="box" x="1" y="40" width="518" height="240" rx="24"/>
+      <rect class="phone" x="48" y="78" width="96" height="172" rx="20"/>
+      <rect class="screen" x="58" y="96" width="76" height="136" rx="10"/>
+      <rect class="phone" x="376" y="78" width="96" height="172" rx="14"/>
+      <rect class="screen" x="386" y="92" width="76" height="144" rx="6"/>
+      <path class="sim" d="M408 140h22l10 10v32h-32z"/>
+      <path class="link" d="M150 164 C 220 110, 300 110, 370 164"/>
+      <path class="link" d="M150 176 C 220 230, 300 230, 370 176"/>
+      <rect class="lock" x="232" y="150" width="56" height="26" rx="13"/>
+      <text class="lock-text" x="260" y="168" text-anchor="middle">加密</text>
+      <text class="label" x="96" y="276" text-anchor="middle">你的 iPhone</text>
+      <text class="small" x="96" y="30" text-anchor="middle">在外面</text>
+      <text class="label" x="424" y="276" text-anchor="middle">网关手机</text>
+      <text class="small" x="424" y="30" text-anchor="middle">在家里，插着 SIM 卡</text>
+      <text class="small" x="260" y="104" text-anchor="middle">来电 · 短信</text>
+      <text class="small" x="260" y="236" text-anchor="middle">拨出 · 回复</text>
+    </svg>
+  </div>
+</div>
+
+<section id="who">
+  <div class="wrap">
+    <h2>为这些情况做的</h2>
+    <p class="section-lead">不用带两部手机，不用开漫游，也不用把号码转到别的号码上。</p>
+    <div class="grid two">
+      <div class="card"><h3>人在外地，号码在家</h3><p>出国、出差、长住外地，原来的号码照样能接电话、收验证码，对方看到的还是你的号码。</p></div>
+      <div class="card"><h3>一个号码，全家都能接</h3><p>家里的号码、老人的号码、做生意的号码，来电时几台 iPhone 一起响，谁有空谁接。</p></div>
+      <div class="card"><h3>双卡都转过来</h3><p>一台安卓手机插两张卡，两个号码都到 iPhone 上，按号码分别给家人授权。</p></div>
+      <div class="card"><h3>陌生来电先别接</h3><p>让来电助手先接，用你自己的声音说话，你在 iPhone 上看着对方说了什么，再决定要不要接过来。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="soft">
+  <div class="wrap">
+    <h2>怎么工作</h2>
+    <p class="section-lead">不需要注册账号。设备之间扫码配对，每台设备有自己的密钥。</p>
+    <ol class="steps">
+      <li><strong>在家里的安卓手机上装网关</strong>插上 SIM 卡，装好 SimNest 网关，按提示打开权限。建议用一台闲置手机，长期插电、连着 Wi-Fi。</li>
+      <li><strong>iPhone 扫码配对</strong>在 iPhone 上打开 SimNest，扫网关屏幕上的二维码，这台 iPhone 就是主人。再用链接或二维码邀请家人。</li>
+      <li><strong>出门</strong>来电时 iPhone 响，短信推到 iPhone 上，在 iPhone 上拨号就是用家里那张卡打出去。</li>
+    </ol>
+    <div class="callout"><p>通话尽量直连：同一个局域网、家里 Wi-Fi 的公网 IPv6、路由器端口映射，都不行才经中继转发。中继也只经手加密后的声音。</p></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>能做什么</h2>
+    <p class="section-lead">下面这些都已经在内测版本里用着。</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>电话</h3>
+        <ul><li>来电同时响多台 iPhone，或主人先响、指定某人先响</li><li>进 iPhone 系统“最近通话”，锁屏也能接</li><li>通话中转给家人，或邀请家人一起通话</li><li>陌生号码显示归属地</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>短信</h3>
+        <ul><li>界面接近 iPhone 自带的“信息”</li><li>验证码一键复制</li><li>按日期加载网关手机上以前的短信</li><li>网关不在线时先存草稿，上线后可自动发出</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <h3>家人共享</h3>
+        <ul><li>每个号码分别授权：接听、拨出、看短信、发短信、看通讯录</li><li>主人随时收回</li><li>换手机由旧手机批准；手机丢了用恢复码找回</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></div>
+        <h3>来电助手<span class="tag">可选</span></h3>
+        <ul><li>陌生来电由助手先接，或先响一会儿没人接再接</li><li>用你自己的声音说话：照着读几句就行</li><li>对方的话实时变成文字；旁听、点预设回复，或随时接过来</li><li>声音和转写都在网关手机本机生成</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
+        <h3>通话录音<span class="tag">默认关</span></h3>
+        <ul><li>保存在家里的网关手机上</li><li>每个号码有空间上限，满了先删最早的</li><li>可以开录音提示，通话开始时对方会听到</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>出门前心里有数</h3>
+        <ul><li>出门前检查：网关、SIM 卡、网络、直连条件、电量一页看清</li><li>网关失联一分钟会通知你</li><li>Wi-Fi 和蜂窝之间切换时通话自动恢复</li><li>桌面小组件随时看状态</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="soft">
+  <div class="wrap">
+    <h2>服务器读不到你的电话和短信</h2>
+    <p class="section-lead">短信内容、来电号码、通讯录和通话记录，在发出的设备上就用接收设备的密钥加密，只有那台设备能解开。</p>
+    <div class="grid">
+      <div class="card"><h3>端到端加密</h3><p>HPKE（X25519、HKDF-SHA256、AES-128-GCM），每条消息带设备签名。服务器和中继只转交密文。</p></div>
+      <div class="card"><h3>不要账号</h3><p>不收集姓名、手机号码、位置和广告标识，不接第三方统计和广告。</p></div>
+      <div class="card"><h3>日志你说了算</h3><p>诊断日志只在你点“发送”时上传，不含电话号码和短信内容，30 天后删除。</p></div>
+    </div>
+    <p class="note">详见<a href="privacy.html">隐私政策</a>。</p>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <h2>网关开源</h2>
+    <p class="section-lead">网关装在你家的手机上，拿着电话和短信的全部权限。所以它的代码公开，谁都可以看它做了什么，也可以一起适配更多机型。</p>
+    <div class="table">
+      <table class="parts">
+        <thead><tr><th>部分</th><th>装在哪</th><th>做什么</th><th>代码</th></tr></thead>
+        <tbody>
+          <tr><td><a href="gateway.html">网关</a></td><td>家里插着 SIM 卡的安卓手机</td><td>接管这张卡的电话和短信，加密后转给 iPhone</td><td class="open">开源 GPL-3.0</td></tr>
+          <tr><td><a href="iphone.html">SimNest iPhone App</a></td><td>你和家人的 iPhone</td><td>接听、拨号、短信、家人管理</td><td class="closed">不开源</td></tr>
+          <tr><td>核心服务</td><td>SimNest 的服务器</td><td>推送、配对、建立通话、转交密文</td><td class="closed">不开源</td></tr>
+          <tr><td><a href="relay.html">自建中继</a></td><td>你自己的云主机或 NAS</td><td>直连不通时转发加密的声音</td><td class="open">开源 GPL-3.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid two" style="margin-top:24px">
+      <div class="card"><h3>给你自己的程序用：MCP</h3><p>网关自带 MCP 服务器，你的 AI 工具可以经网关读短信、发短信、拨号接电话，以文字和对方对话，网关负责转写和合成。由网关直接授权，默认限速。</p></div>
+      <div class="card"><h3>自己跑中继</h3><p>在自己的云主机或家里的 NAS 上用 Docker 跑一个中继，通话就不经 SimNest 的中继。<a href="relay.html">怎么部署</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="status" class="soft">
+  <div class="wrap">
+    <h2>现在的情况</h2>
+    <p class="section-lead">如实写在这里，免得你装了才发现。</p>
+    <ul class="status">
+      <li><b>iPhone App 在内测</b>，经 TestFlight 邀请安装，暂未上架 App Store。</li>
+      <li><b>网关已公开发布</b>，在 GitHub 和 Gitee 的 Releases 下载；它要配合 iPhone App 使用。</li>
+      <li><b>网关需要 Android 12 及以上。</b>验证过：Redmi Note 11 5G（Android 13）；华为 Mate 40 RS 部分可用。其他机型还没验证。</li>
+      <li><b>网关手机要长期插电、联网。</b>第一次配置要打开“无线调试”，网关靠它把通话声音接出来。</li>
+      <li><b>双卡手机大多是“双卡双待单通”</b>：一张卡在通话时，另一张卡的来电会被系统当成占线。</li>
+      <li><b>彩信不转内容</b>，只提示收到了一条。紧急电话请用你手边的手机直接拨打。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap prose">
+    <h2>常见问题</h2>
+    <details><summary>和呼叫转移有什么区别？</summary><p>呼叫转移要另一个号码来接，短信也转不过去。SimNest 用家里那张卡本身接打和收发，你拨出去时对方看到的仍是原来的号码。</p></details>
+    <details><summary>和 eSIM、国际漫游有什么区别？</summary><p>不用换卡，也不用开漫游。号码一直在家里那张实体卡上，你在任何能上网的地方都能用。</p></details>
+    <details><summary>家里那台手机要一直开着吗？</summary><p>要。它得插电、联网、开着网关。建议用一台闲置的安卓手机专门做网关。</p></details>
+    <details><summary>通话质量怎么样？</summary><p>取决于两边的网络。直连时延迟最低，走中继时多绕一段。iPhone 上能看到这通电话走的是直连还是中继。</p></details>
+    <details><summary>服务器能看到我的短信吗？</summary><p>看不到。服务器只转交加密后的内容，解密的密钥只在你的设备上。</p></details>
+    <details><summary>为什么网关开源，iPhone App 不开源？</summary><p>网关拿着你家那张卡的电话和短信权限，开源是为了让你能核实它做了什么，也方便大家适配更多机型。iPhone App 和核心服务是我们维持这个产品的方式。</p></details>
+    <details><summary>怎么参加 iPhone 内测？</summary><p>目前只对受邀的测试者开放，名额有限。开放申请时会在这里说明。</p></details>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="assets/icon.svg" alt="" width="24" height="24"> SimNest — 号码留在家里，电话和短信跟着你走。</p>
+    <p><a href="privacy.html">隐私政策</a> · <a href="terms.html">用户协议</a> · <a href="disclaimer.html">免责声明</a></p>
+    <p>源代码: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-hosted relay · SimNest</title>
+<meta name="description" content="Run a SimNest relay with Docker on your own server or NAS, so that calls which can&#x27;t go direct pass through your own machine.">
+<meta property="og:title" content="Self-hosted relay · SimNest">
+<meta property="og:description" content="Run a SimNest relay with Docker on your own server or NAS, so that calls which can&#x27;t go direct pass through your own machine.">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../relay.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/relay.html"><link rel="alternate" hreflang="en" href="../en/relay.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-relay">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../en/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../en/">Home</a><a href="../en/iphone.html">iPhone app</a><a href="../en/gateway.html">Gateway</a><a href="../en/relay.html" aria-current="page">Self-hosted relay</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../relay.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/relay.html" hreflang="zh-Hant">繁體</a><a href="../en/relay.html" hreflang="en" aria-current="true">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">Open source · GPL-3.0 · For the hands-on</p>
+    <h1>Self-hosted relay</h1>
+    <p class="lead">When the gateway and your iPhone can't reach each other directly, a relay passes the call along. SimNest's relay is the default; you can also run one on your own server or home NAS, so calls go through a machine you control.</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/relay">Package and instructions</a>
+    </div>
+
+    <div class="callout"><p>The package's program and security settings have automated tests, and the gateway can add and use a self-hosted relay. But the whole path, from deploying on a real server or NAS to a call going through it, hasn't been tried in the field yet. Issues are welcome.</p></div>
+
+    <h2>What a relay can see</h2>
+    <ul>
+      <li>It only forwards encrypted audio, and can't hear or change the call: the two ends have their own end-to-end encryption.</li>
+      <li>A self-hosted relay never talks to SimNest's service. Its address and key live only on your gateway; SimNest's servers don't know it exists.</li>
+      <li>It does see both ends' public addresses, when calls happen and how long they last. So run it on a machine you control.</li>
+    </ul>
+
+    <h2>What you need</h2>
+    <ul>
+      <li>A machine with a public address. A cloud server works as is; a machine at home needs a port mapping on the router and a home connection with a public address (not behind carrier-grade NAT).</li>
+      <li>Docker and Docker Compose.</li>
+      <li>Open UDP and TCP 3478, and UDP 49160–49200.</li>
+      <li>About 100 kbps of upload per call.</li>
+    </ul>
+
+    <h2>Deploy</h2>
+    <p>Get the package, copy the settings file and set <code>EXTERNAL_IP</code> to the machine's public address:</p>
+    <pre><code>git clone https://github.com/simnest-app/relay.git
+cd relay
+cp .env.example .env</code></pre>
+    <p>Then start it:</p>
+    <pre><code>docker compose up -d</code></pre>
+    <p><code>docker compose logs helper</code> then shows the address of a setup page. Open it in a browser on the same network (on a cloud server, through an SSH port forward), copy the connection text into "Your Own Relay" under the gateway's "Network &amp; Relays", and the gateway tests it straight away. The <a href="https://github.com/simnest-app/relay">package readme</a> has every step.</p>
+
+    <h2>What's inside</h2>
+    <ul>
+      <li><b>coturn</b>: the TURN relay, from its official image pinned by digest (BSD-3).</li>
+      <li><b>Helper</b>: creates the key on first run, writes coturn's security settings, shows the connection details for the gateway on its setup page, and checks itself.</li>
+      <li><b>Security settings</b>: temporary credentials only, quotas, and no relaying to private or reserved addresses.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — Your number stays home. Your calls and texts come with you.</p>
+    <p><a href="../en/privacy.html">Privacy</a> · <a href="../en/terms.html">Terms</a> · <a href="../en/disclaimer.html">Disclaimer</a></p>
+    <p>Source code: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

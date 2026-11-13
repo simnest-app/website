@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimNest</title>
+<meta name="description" content="把插著 SIM 卡的 Android 手機留在家裡當閘道，你和家人的 iPhone 在任何地方都能用這個號碼接打電話、收發簡訊。端對端加密，閘道開源。">
+<meta property="og:title" content="SimNest">
+<meta property="og:description" content="把插著 SIM 卡的 Android 手機留在家裡當閘道，你和家人的 iPhone 在任何地方都能用這個號碼接打電話、收發簡訊。端對端加密，閘道開源。">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href=".././"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/"><link rel="alternate" hreflang="en" href="../en/">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-index">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../zh-Hant/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../zh-Hant/" aria-current="page">首頁</a><a href="../zh-Hant/iphone.html">iPhone App</a><a href="../zh-Hant/gateway.html">閘道</a><a href="../zh-Hant/relay.html">自建中繼</a></nav>
+    <nav class="lang" aria-label="Language"><a href=".././" hreflang="zh-Hans">简体</a><a href="../zh-Hant/" hreflang="zh-Hant" aria-current="true">繁體</a><a href="../en/" hreflang="en">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">iPhone App 內測中 · 閘道已開源</p>
+      <h1><span class="nw">號碼留在家裡，</span><br><span class="nw">電話和簡訊跟著你走。</span></h1>
+      <p class="lead">把一支插著 SIM 卡的 Android 手機放在家裡當閘道，你和家人的 iPhone 在任何地方都能用這個號碼接電話、打電話、收發簡訊。內容端對端加密，伺服器讀不到。</p>
+      <div class="actions">
+        <a class="btn primary" href="gateway.html">下載閘道</a>
+        <a class="btn" href="#how">怎麼運作</a>
+      </div>
+      <p class="note">iPhone App 目前透過 TestFlight 邀請內測，尚未上架 App Store。</p>
+    </div>
+    <svg class="flow" viewBox="0 0 520 320" role="img" aria-label="家裡的 Android 閘道手機透過加密連線，把電話和簡訊轉到在外面的 iPhone">
+      <rect class="box" x="1" y="40" width="518" height="240" rx="24"/>
+      <rect class="phone" x="48" y="78" width="96" height="172" rx="20"/>
+      <rect class="screen" x="58" y="96" width="76" height="136" rx="10"/>
+      <rect class="phone" x="376" y="78" width="96" height="172" rx="14"/>
+      <rect class="screen" x="386" y="92" width="76" height="144" rx="6"/>
+      <path class="sim" d="M408 140h22l10 10v32h-32z"/>
+      <path class="link" d="M150 164 C 220 110, 300 110, 370 164"/>
+      <path class="link" d="M150 176 C 220 230, 300 230, 370 176"/>
+      <rect class="lock" x="232" y="150" width="56" height="26" rx="13"/>
+      <text class="lock-text" x="260" y="168" text-anchor="middle">加密</text>
+      <text class="label" x="96" y="276" text-anchor="middle">你的 iPhone</text>
+      <text class="small" x="96" y="30" text-anchor="middle">在外面</text>
+      <text class="label" x="424" y="276" text-anchor="middle">閘道手機</text>
+      <text class="small" x="424" y="30" text-anchor="middle">在家裡，插著 SIM 卡</text>
+      <text class="small" x="260" y="104" text-anchor="middle">來電 · 簡訊</text>
+      <text class="small" x="260" y="236" text-anchor="middle">撥出 · 回覆</text>
+    </svg>
+  </div>
+</div>
+
+<section id="who">
+  <div class="wrap">
+    <h2>為這些情況而做</h2>
+    <p class="section-lead">不用帶兩支手機，不用開漫遊，也不用把號碼轉接到別的號碼。</p>
+    <div class="grid two">
+      <div class="card"><h3>人在外地，號碼在家</h3><p>出國、出差、長住外地，原來的號碼照樣能接電話、收驗證碼，對方看到的還是你的號碼。</p></div>
+      <div class="card"><h3>一個號碼，全家都能接</h3><p>家裡的號碼、長輩的號碼、做生意的號碼，來電時幾支 iPhone 一起響，誰有空誰接。</p></div>
+      <div class="card"><h3>雙卡都轉過來</h3><p>一支 Android 手機插兩張卡，兩個號碼都到 iPhone 上，按號碼分別給家人授權。</p></div>
+      <div class="card"><h3>陌生來電先別接</h3><p>讓來電助理先接，用你自己的聲音說話，你在 iPhone 上看著對方說了什麼，再決定要不要接過來。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="soft">
+  <div class="wrap">
+    <h2>怎麼運作</h2>
+    <p class="section-lead">不需要註冊帳號。裝置之間掃碼配對，每台裝置有自己的金鑰。</p>
+    <ol class="steps">
+      <li><strong>在家裡的 Android 手機裝閘道</strong>插上 SIM 卡，裝好 SimNest 閘道，依提示開啟權限。建議用一支閒置手機，長期接上電源、連著 Wi-Fi。</li>
+      <li><strong>iPhone 掃碼配對</strong>在 iPhone 上打開 SimNest，掃閘道螢幕上的 QR Code，這支 iPhone 就是主人。再用連結或 QR Code 邀請家人。</li>
+      <li><strong>出門</strong>來電時 iPhone 響，簡訊推送到 iPhone，在 iPhone 上撥號就是用家裡那張卡打出去。</li>
+    </ol>
+    <div class="callout"><p>通話盡量直連：同一個區域網路、家裡 Wi-Fi 的公網 IPv6、路由器連接埠對應，都不行才經中繼轉發。中繼也只經手加密後的聲音。</p></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>能做什麼</h2>
+    <p class="section-lead">以下功能都已經在內測版本裡使用中。</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>電話</h3>
+        <ul><li>來電同時響多支 iPhone，或主人先響、指定某人先響</li><li>進 iPhone 系統「最近通話」，鎖定畫面也能接</li><li>通話中轉給家人，或邀請家人一起通話</li><li>陌生號碼顯示所在地</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>簡訊</h3>
+        <ul><li>介面接近 iPhone 內建的「訊息」</li><li>驗證碼一鍵複製</li><li>按日期載入閘道手機上以前的簡訊</li><li>閘道離線時先存草稿，上線後可自動送出</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <h3>家人共享</h3>
+        <ul><li>每個號碼分別授權：接聽、撥出、看簡訊、傳簡訊、看通訊錄</li><li>主人隨時收回</li><li>換手機由舊手機核准；手機遺失用復原碼找回</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></div>
+        <h3>來電助理<span class="tag">可選</span></h3>
+        <ul><li>陌生來電由助理先接，或先響一會兒沒人接再接</li><li>用你自己的聲音說話：照著念幾句就行</li><li>對方的話即時變成文字；旁聽、點預設回覆，或隨時接過來</li><li>聲音和轉寫都在閘道手機本機產生</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
+        <h3>通話錄音<span class="tag">預設關閉</span></h3>
+        <ul><li>儲存在家裡的閘道手機上</li><li>每個號碼有空間上限，滿了先刪最早的</li><li>可以開啟錄音提示，通話開始時對方會聽到</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>出門前心裡有數</h3>
+        <ul><li>出門前檢查：閘道、SIM 卡、網路、直連條件、電量一頁看清</li><li>閘道離線一分鐘會通知你</li><li>Wi-Fi 和行動網路之間切換時通話自動恢復</li><li>主畫面小工具隨時看狀態</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="soft">
+  <div class="wrap">
+    <h2>伺服器讀不到你的電話和簡訊</h2>
+    <p class="section-lead">簡訊內容、來電號碼、通訊錄和通話記錄，在發出的裝置上就用接收裝置的金鑰加密，只有那台裝置能解開。</p>
+    <div class="grid">
+      <div class="card"><h3>端對端加密</h3><p>HPKE（X25519、HKDF-SHA256、AES-128-GCM），每則訊息附裝置簽章。伺服器和中繼只轉交密文。</p></div>
+      <div class="card"><h3>不用帳號</h3><p>不收集姓名、手機號碼、位置和廣告識別碼，不接第三方統計和廣告。</p></div>
+      <div class="card"><h3>記錄檔由你決定</h3><p>診斷記錄只在你點「傳送」時上傳，不含電話號碼和簡訊內容，30 天後刪除。</p></div>
+    </div>
+    <p class="note">詳見<a href="privacy.html">隱私政策</a>。</p>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <h2>閘道開源</h2>
+    <p class="section-lead">閘道裝在你家的手機上，握有電話和簡訊的全部權限。所以它的程式碼公開，誰都可以看它做了什麼，也可以一起適配更多機型。</p>
+    <div class="table">
+      <table class="parts">
+        <thead><tr><th>部分</th><th>裝在哪</th><th>做什麼</th><th>程式碼</th></tr></thead>
+        <tbody>
+          <tr><td><a href="gateway.html">閘道</a></td><td>家裡插著 SIM 卡的 Android 手機</td><td>接管這張卡的電話和簡訊，加密後轉給 iPhone</td><td class="open">開源 GPL-3.0</td></tr>
+          <tr><td><a href="iphone.html">SimNest iPhone App</a></td><td>你和家人的 iPhone</td><td>接聽、撥號、簡訊、家人管理</td><td class="closed">不開源</td></tr>
+          <tr><td>核心服務</td><td>SimNest 的伺服器</td><td>推播、配對、建立通話、轉交密文</td><td class="closed">不開源</td></tr>
+          <tr><td><a href="relay.html">自建中繼</a></td><td>你自己的雲端主機或 NAS</td><td>直連不通時轉發加密的聲音</td><td class="open">開源 GPL-3.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid two" style="margin-top:24px">
+      <div class="card"><h3>給你自己的程式用：MCP</h3><p>閘道內建 MCP 伺服器，你的 AI 工具可以透過閘道讀簡訊、傳簡訊、撥號接電話，以文字和對方對話，閘道負責轉寫和合成。由閘道直接授權，預設限速。</p></div>
+      <div class="card"><h3>自己跑中繼</h3><p>在自己的雲端主機或家裡的 NAS 上用 Docker 跑一個中繼，通話就不經 SimNest 的中繼。<a href="relay.html">怎麼部署</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="status" class="soft">
+  <div class="wrap">
+    <h2>目前的狀況</h2>
+    <p class="section-lead">照實寫在這裡，免得你裝了才發現。</p>
+    <ul class="status">
+      <li><b>iPhone App 在內測</b>，透過 TestFlight 邀請安裝，尚未上架 App Store。</li>
+      <li><b>閘道已公開發布</b>，在 GitHub 和 Gitee 的 Releases 下載；它要搭配 iPhone App 使用。</li>
+      <li><b>閘道需要 Android 12 以上。</b>驗證過：Redmi Note 11 5G（Android 13）；華為 Mate 40 RS 部分可用。其他機型尚未驗證。</li>
+      <li><b>閘道手機要長期接上電源、連網。</b>第一次設定要開啟「無線偵錯」，閘道靠它把通話聲音接出來。</li>
+      <li><b>雙卡手機大多是「雙卡雙待單通」</b>：一張卡在通話時，另一張卡的來電會被系統當成忙線。</li>
+      <li><b>多媒體簡訊不轉內容</b>，只提示收到了一則。緊急電話請用你手邊的手機直接撥打。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap prose">
+    <h2>常見問題</h2>
+    <details><summary>和來電轉接有什麼不同？</summary><p>來電轉接要另一個號碼來接，簡訊也轉不過去。SimNest 用家裡那張卡本身接打和收發，你撥出去時對方看到的仍是原來的號碼。</p></details>
+    <details><summary>和 eSIM、國際漫遊有什麼不同？</summary><p>不用換卡，也不用開漫遊。號碼一直在家裡那張實體卡上，你在任何能上網的地方都能用。</p></details>
+    <details><summary>家裡那支手機要一直開著嗎？</summary><p>要。它得接上電源、連網、開著閘道。建議用一支閒置的 Android 手機專門當閘道。</p></details>
+    <details><summary>通話品質如何？</summary><p>取決於兩邊的網路。直連時延遲最低，走中繼時多繞一段。iPhone 上能看到這通電話走的是直連還是中繼。</p></details>
+    <details><summary>伺服器看得到我的簡訊嗎？</summary><p>看不到。伺服器只轉交加密後的內容，解密的金鑰只在你的裝置上。</p></details>
+    <details><summary>為什麼閘道開源，iPhone App 不開源？</summary><p>閘道握有你家那張卡的電話和簡訊權限，開源是為了讓你能確認它做了什麼，也方便大家適配更多機型。iPhone App 和核心服務是我們維持這個產品的方式。</p></details>
+    <details><summary>怎麼參加 iPhone 內測？</summary><p>目前只對受邀的測試者開放，名額有限。開放申請時會在這裡說明。</p></details>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — 號碼留在家裡，電話和簡訊跟著你走。</p>
+    <p><a href="../zh-Hant/privacy.html">隱私政策</a> · <a href="../zh-Hant/terms.html">使用者協議</a> · <a href="../zh-Hant/disclaimer.html">免責聲明</a></p>
+    <p>原始碼: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

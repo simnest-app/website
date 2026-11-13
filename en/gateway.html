@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gateway · SimNest</title>
+<meta name="description" content="The SimNest Gateway is an open-source (GPL-3.0) Android app for the phone at home. It passes its SIM&#x27;s calls and texts, encrypted, to your iPhone.">
+<meta property="og:title" content="Gateway · SimNest">
+<meta property="og:description" content="The SimNest Gateway is an open-source (GPL-3.0) Android app for the phone at home. It passes its SIM&#x27;s calls and texts, encrypted, to your iPhone.">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../gateway.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/gateway.html"><link rel="alternate" hreflang="en" href="../en/gateway.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-gateway">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../en/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../en/">Home</a><a href="../en/iphone.html">iPhone app</a><a href="../en/gateway.html" aria-current="page">Gateway</a><a href="../en/relay.html">Self-hosted relay</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../gateway.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/gateway.html" hreflang="zh-Hant">繁體</a><a href="../en/gateway.html" hreflang="en" aria-current="true">English</a></nav>
+  </div>
+</header>
+<main>
+<div class="page-head">
+  <div class="wrap prose">
+    <p class="eyebrow">Open source · GPL-3.0</p>
+    <h1>SimNest Gateway</h1>
+    <p class="lead">Runs on the Android phone at home that holds your SIM. It takes over that SIM's incoming calls, outgoing calls and texts, and passes them, encrypted, to your and your family's iPhones.</p>
+  </div>
+</div>
+
+<section style="padding-top:32px">
+  <div class="wrap prose">
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/simnest-app/gateway/releases/latest">Download from GitHub</a>
+      <a class="btn" href="https://gitee.com/simnest-app/gateway/releases">Download from Gitee</a>
+      <a class="btn" href="https://github.com/simnest-app/gateway">Source code</a>
+    </div>
+    <p class="note">Both carry the same APK. Use Gitee if GitHub is slow where you are.</p>
+
+    <div class="callout"><p>The gateway works together with SimNest for iPhone, which is in an invite-only TestFlight beta. Without the iPhone app the gateway can't be paired.</p></div>
+
+    <h2>What you need</h2>
+    <ul>
+      <li>An arm64 Android phone running Android 12 or later, with the SIM you want to use. A spare phone dedicated to the job is best.</li>
+      <li>Keep it plugged in and on your home Wi-Fi.</li>
+      <li>Turn on Wireless debugging in Developer options during setup. The gateway uses it to start an audio service on the phone that carries call audio; without it, calls have no sound.</li>
+    </ul>
+
+    <h2>Phones verified</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Phone</th><th>System</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Redmi Note 11 5G</td><td>Android 13 (HyperOS 1.0)</td><td>The maintainer's daily gateway</td></tr>
+          <tr><td>Huawei Mate 40 RS</td><td>HarmonyOS 4.2</td><td>Works with limits: no Wireless debugging, so after a restart it needs a computer once before calls have sound</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Other phones haven't been tried. There are too many Android brands and system variants for us to test them all, which is one reason the gateway is open source. Whether your phone works or not, please tell us in <a href="https://github.com/simnest-app/gateway/issues">Issues</a>. The repository has a porting and evidence guide for contributors.</p>
+
+    <h2>Permissions it asks for</h2>
+    <p>The gateway needs more than an ordinary app. Each one is explained in the app, and you grant it in the system dialog.</p>
+    <ul>
+      <li><b>Phone, call log, make calls, SMS, contacts</b>: forward calls and texts, show the caller's number on your iPhone, call out through the gateway.</li>
+      <li><b>Default phone app and default SMS app</b>: know when the other side answers; stop the system from asking to confirm every outgoing text.</li>
+      <li><b>Wireless debugging</b>: start the audio service on the phone.</li>
+      <li><b>Modify secure settings</b>: only to turn Wireless debugging back on after a restart or Wi-Fi change.</li>
+      <li><b>Start at boot, foreground service</b>: the gateway comes back by itself after a restart, always visible in the notification shade, and you can stop it any time.</li>
+    </ul>
+    <p>The gateway never places calls on its own. It calls out and sends texts only for the owner and the family the owner has allowed.</p>
+
+    <h2>Updates</h2>
+    <p>The official APK checks GitHub and Gitee for new releases, and before installing one checks that the package name, version and signature match what's installed. By default it just tells you; you can turn on automatic updates under About.</p>
+
+    <h2>Check the APK</h2>
+    <p>Each release's notes give the APK's SHA-256. To check it on a computer:</p>
+    <pre><code>shasum -a 256 simnest-gateway-*.apk</code></pre>
+
+    <h2>Build it yourself</h2>
+    <p>The source is on <a href="https://github.com/simnest-app/gateway">GitHub</a>; the readme explains how to build. A build of your own doesn't include the address of SimNest's core service, so it installs and shows every screen but can't pair.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — Your number stays home. Your calls and texts come with you.</p>
+    <p><a href="../en/privacy.html">Privacy</a> · <a href="../en/terms.html">Terms</a> · <a href="../en/disclaimer.html">Disclaimer</a></p>
+    <p>Source code: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>

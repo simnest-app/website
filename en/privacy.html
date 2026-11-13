@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · SimNest</title>
+<meta name="description" content="SimNest Privacy Policy">
+<meta property="og:title" content="Privacy Policy · SimNest">
+<meta property="og:description" content="SimNest Privacy Policy">
+<meta name="theme-color" content="#0FBF9A">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="alternate" hreflang="zh-Hans" href="../privacy.html"><link rel="alternate" hreflang="zh-Hant" href="../zh-Hant/privacy.html"><link rel="alternate" hreflang="en" href="../en/privacy.html">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="page-privacy">
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../en/"><img src="../assets/icon.svg" alt="" width="32" height="32"><span>SimNest</span></a>
+    <nav class="nav"><a href="../en/">Home</a><a href="../en/iphone.html">iPhone app</a><a href="../en/gateway.html">Gateway</a><a href="../en/relay.html">Self-hosted relay</a></nav>
+    <nav class="lang" aria-label="Language"><a href="../privacy.html" hreflang="zh-Hans">简体</a><a href="../zh-Hant/privacy.html" hreflang="zh-Hant">繁體</a><a href="../en/privacy.html" hreflang="en" aria-current="true">English</a></nav>
+  </div>
+</header>
+<main>
+<article class="wrap legal"><p class="draft-note">Draft: operator details not filled in yet</p>
+<h1>SimNest Privacy Policy</h1>
+<p>Version 1.0 · Effective <mark class="todo">【Effective date】</mark> · Updated November 6, 2026</p>
+<p><em>This is a translation. If it differs from the Chinese version, the Chinese version prevails.</em></p>
+<p>SimNest is provided by <mark class="todo">【Operator name】</mark> ("we"). This policy covers the SimNest iPhone app, the SimNest Gateway Android app and the SimNest service. Questions: <mark class="todo">【Contact email】</mark>.</p>
+<h2>How SimNest works</h2>
+<p>You turn one of your own Android phones into a SIM gateway. It receives your calls and SMS and passes them on to your iPhone, and to the iPhones of family members you invite. Your iPhone can also place calls and send SMS through the gateway phone.</p>
+<p><strong>Before they leave the sending device, SMS content, caller numbers, contacts, call logs and number names are encrypted with the receiving device's key, so only that device can read them. Our servers pass on the ciphertext and cannot read it.</strong> Call audio goes over an encrypted peer-to-peer connection. When a direct connection is not possible, our relay forwards the encrypted audio. Audio is never recorded or stored.</p>
+<h2>What we process</h2>
+<p><strong>To run the service:</strong></p>
+<ul>
+<li>Device identifiers: a random ID derived from each device's public key, plus the public key itself.
+</li>
+<li>Apple push tokens.
+</li>
+<li>Pairing and family-sharing records, signed by the owner's device.
+</li>
+<li>Each gateway's SIM slots and carrier names.
+</li>
+<li>Encrypted number names.
+</li>
+<li>Short-lived call and message routing state, held in memory for at most 5 minutes.
+</li>
+<li>Connection data (IP address, port, time) in server and relay logs, kept for no more than 30 days.
+</li></ul>
+<p><strong>Only on your devices; we cannot read it:</strong></p>
+<ul>
+<li>SMS content and the other party's numbers.
+</li>
+<li>Caller numbers.
+</li>
+<li>Your iPhone contacts. These are read on the iPhone only, and only if you allow it.
+</li>
+<li>The gateway phone's contacts and call log. They are sent encrypted, only to an iPhone that is allowed to see them.
+</li>
+<li>Call audio.
+</li>
+<li>Your in-app settings.
+</li></ul>
+<p><strong>Only when you choose to send them:</strong></p>
+<ul>
+<li>Diagnostics logs. These record app events and settings states. They contain no phone numbers, message text or contacts; long digit runs are masked before upload. We keep them for 30 days.
+</li>
+<li>Diagnostics screenshots. When you send a diagnostics log, you may choose up to three screenshots to send with it; none are sent unless you pick them. The app uses the system photo picker and receives only the images you choose; it does not read your photo library. Screenshots may show phone numbers, message text or contacts, so the app shows them again and asks you to check them before sending. They are scaled down and re-saved before upload, which removes location and other photo details. They are kept with their log for 30 days and used only to look into the problem you reported.
+</li></ul>
+<p><strong>What we never do:</strong></p>
+<ul>
+<li>We do not collect your name, phone number, location, photos or advertising identifiers.
+</li>
+<li>We do not track you across apps or websites, profile you or show ads.
+</li>
+<li>We do not use third-party analytics or advertising SDKs.
+</li>
+<li>We do not sell your information.
+</li></ul>
+<h2>Permissions</h2>
+<p><strong>iPhone:</strong></p>
+<ul>
+<li>Microphone, for calls.
+</li>
+<li>Notifications.
+</li>
+<li>Camera, only to scan the pairing code.
+</li>
+<li>Contacts (optional), read on the device only.
+</li></ul>
+<p><strong>Gateway (Android):</strong></p>
+<ul>
+<li>Phone, call log and phone numbers.
+</li>
+<li>SMS. The gateway becomes the default SMS app.
+</li>
+<li>Contacts, read only on request from an allowed iPhone.
+</li>
+<li>Notifications.
+</li>
+<li>Display over other apps.
+</li>
+<li>Start at boot.
+</li>
+<li>Write secure settings, granted to itself only to re-enable wireless debugging for its audio bridge.
+</li></ul>
+<h2>Family sharing and other people's data</h2>
+<p>Owners choose what each family member may do, and can change or revoke it at any time. When a family member is removed, or loses the view right, the messages they received from that gateway are deleted from their iPhone. Messages, calls and contacts include information about other people. You are responsible for having the right to process it.</p>
+<h2>Where data is kept, and security</h2>
+<p>Notifications are delivered through Apple Push Notification service, which receives only the push token, the words "新短信" and ciphertext.</p>
+<p>Connections use TLS with certificate pinning. End-to-end encryption uses HPKE (X25519 / HKDF-SHA256 / AES-128-GCM) with device signatures. Private keys stay in the iPhone Secure Enclave or Keychain, and in the Android Keystore.</p>
+<h2>Retention and deletion</h2>
+<ul>
+<li>Device, pairing and sharing records are kept until you unpair or ask us to delete them.
+</li>
+<li>Routing state is kept for at most 5 minutes.
+</li>
+<li>Server and relay logs are kept for up to 30 days.
+</li>
+<li>Diagnostics logs and the screenshots sent with them are kept for 30 days.
+</li></ul>
+<p>You can unpair at any time in the app, or email <mark class="todo">【Contact email】</mark> and we will delete all server records for your devices within 15 business days.</p>
+<h2>Your rights</h2>
+<p>You may access, copy, correct or delete your information, or withdraw consent, by emailing <mark class="todo">【Contact email】</mark>.</p>
+<h2>Children</h2>
+<p>SimNest is intended for adults. Children under 14 may use it only with a guardian's consent.</p>
+<h2>Changes</h2>
+<p>We will tell you in the app when this policy changes, and ask for your consent again for material changes.</p>
+<h2>Contact</h2>
+<p><mark class="todo">【Operator name】</mark> · <mark class="todo">【Address】</mark> · <mark class="todo">【Contact email】</mark></p></article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="foot-brand"><img src="../assets/icon.svg" alt="" width="24" height="24"> SimNest — Your number stays home. Your calls and texts come with you.</p>
+    <p><a href="../en/privacy.html">Privacy</a> · <a href="../en/terms.html">Terms</a> · <a href="../en/disclaimer.html">Disclaimer</a></p>
+    <p>Source code: <a href="https://github.com/simnest-app/gateway">GitHub</a> · <a href="https://gitee.com/simnest-app/gateway">Gitee</a></p>
+  </div>
+</footer>
+</body>
+</html>
